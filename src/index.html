@@ -12,17 +12,65 @@
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
+
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <div class="container">
+      <!-- Navbar -->
+      <div class="row p-3" id="navbar">
+        <form>
+          <div class="form-group">
+            <input type="text" id="entCard" class="numCard" />
+            <button type="submit" id="drow">Drow</button>
+            <button type="button">Sort</button>
+          </div>
+        </form>
+      </div>
+      <!-- card -->
+      <div class="row p-2 d-none" id="card">
+        <div class="card shadow">
+          <div
+            class="card-header align-middle py-0 my-0 bg-transparent border-0"
+            style="font-size: 40px;"
+          >
+            <p id="simboloTop"></p>
+          </div>
+          <div
+            class="card-body align-middle py-0 my-0"
+            style="align-self: center;font-size: 150px;"
+          >
+            <p id="num"></p>
+          </div>
+          <div
+            class="card-footer align-middle py-0 my-0 bg-transparent rotado border-0 "
+            style="font-size: 40px;"
+          >
+            <p id="simboloBot"></p>
+          </div>
+        </div>
+      </div>
+      <!--  fin card-->
+      <!-- cartas ordenadas -->
+      <div class="row p-2 d-none" id="card">
+        <div class="card shadow">
+          <div
+            class="card-header align-middle py-0 my-0 bg-transparent border-0"
+            style="font-size: 40px;"
+          >
+            <p id="simboloTop"></p>
+          </div>
+          <div
+            class="card-body align-middle py-0 my-0"
+            style="align-self: center;font-size: 150px;"
+          >
+            <p id="num"></p>
+          </div>
+          <div
+            class="card-footer align-middle py-0 my-0 bg-transparent rotado border-0 "
+            style="font-size: 40px;"
+          >
+            <p id="simboloBot"></p>
+          </div>
+        </div>
       </div>
     </div>
   </body>
