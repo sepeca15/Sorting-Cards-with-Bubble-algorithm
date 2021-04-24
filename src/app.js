@@ -41,6 +41,9 @@ window.onload = function() {
     document.querySelector("#simboloBot1").classList.remove("text-danger");
   } */
 };
+let misCartas = [];
+let x = 0;
+
 var cartas = document.querySelector("#Cartas");
 let drow = document.querySelector("#drow");
 drow.addEventListener("click", function(e) {
@@ -53,89 +56,107 @@ drow.addEventListener("click", function(e) {
       cartas.appendChild(dibujarCartas());
     }
   }
-  //funcion creadora de cartas random
-  function dibujarCartas() {
-    // pintas y numero random
-    let numero = [
-      "A",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "J",
-      "Q",
-      "K"
-    ];
-    let pinta = ["♦", "♥", "♠", "♣"];
-
-    let numIndx = Math.floor(Math.random() * numero.length);
-    let pintaIndex = Math.floor(Math.random() * pinta.length);
-    var numerorandom = numero[numIndx];
-    var pintarandom = pinta[pintaIndex];
-    console.log(pintarandom, numerorandom);
-
-    // Creamos carta
-    var carddiv = document.createElement("div");
-    carddiv.classList.add("m-2", "card", "shadow");
-
-    // Creamos Part Top
-    let cardheader = document.createElement("div");
-    cardheader.classList.add(
-      "border-0",
-      "card-header",
-      "align-middle",
-      "py-0",
-      "my-0",
-      "bg-transparent"
-    );
-    // Creamos P dentro de Part Top
-    var pPintaT = document.createElement("p");
-    pPintaT.innerHTML = pintarandom;
-    // Metemos P en Parte Top
-    cardheader.appendChild(pPintaT);
-
-    // Creamos Part Mid
-    let cardbody = document.createElement("div");
-    cardbody.classList.add("my-0", "card-body", "align-middle", "py-0");
-    // Creamos P de Part Mid
-    let pNum = document.createElement("p");
-    pNum.innerHTML = numerorandom;
-    //Metemos el P dentro de Part mid
-    cardbody.appendChild(pNum);
-
-    // Creanis Part Bot
-    let cardfooter = document.createElement("div");
-    cardfooter.classList.add(
-      "border-0",
-      "card-footer",
-      "align-middle",
-      "py-0",
-      "my-0",
-      "bg-transparent",
-      "rotado"
-    );
-    // Creamos P dentro de Part Bot
-    var pPintaB = document.createElement("p");
-    pPintaB.innerHTML = pintarandom;
-    // Metemos P en Parte Top
-    cardfooter.appendChild(pPintaB);
-
-    //Cambia de color a los corazones y diamantes
-    if (pintarandom == "♦" || pintarandom == "♥") {
-      pPintaT.style.color = "red";
-      pPintaB.style.color = "red";
-    }
-
-    //metemos el top mid y bot en la carta
-    carddiv.appendChild(cardheader);
-    carddiv.appendChild(cardbody);
-    carddiv.appendChild(cardfooter);
-
-    return carddiv;
-  }
 });
+//funcion creadora de cartas random
+function dibujarCartas() {
+  // pintas y numero random
+  let numero = ["Ⓐ", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+  let pinta = ["♦", "♥", "♠", "♣"];
+
+  let numIndx = Math.floor(Math.random() * numero.length);
+  let pintaIndex = Math.floor(Math.random() * pinta.length);
+  var numerorandom = numero[numIndx];
+  var pintarandom = pinta[pintaIndex];
+  console.log(pintarandom, numerorandom);
+
+  // Creamos carta
+  var carddiv = document.createElement("div");
+  carddiv.classList.add("m-2", "card", "shadow");
+
+  // Creamos Part Top
+  let cardheader = document.createElement("div");
+  cardheader.classList.add(
+    "border-0",
+    "card-header",
+    "align-middle",
+    "py-0",
+    "my-0",
+    "bg-transparent"
+  );
+  // Creamos P dentro de Part Top
+  var pPintaT = document.createElement("p");
+  pPintaT.innerHTML = pintarandom;
+  // Metemos P en Parte Top
+  cardheader.appendChild(pPintaT);
+
+  // Creamos Part Mid
+  let cardbody = document.createElement("div");
+  cardbody.classList.add("my-0", "card-body", "align-middle", "py-0");
+  // Creamos P de Part Mid
+  let pNum = document.createElement("p");
+  pNum.innerHTML = numerorandom;
+  //Metemos el P dentro de Part mid
+  cardbody.appendChild(pNum);
+
+  // Creanis Part Bot
+  let cardfooter = document.createElement("div");
+  cardfooter.classList.add(
+    "border-0",
+    "card-footer",
+    "align-middle",
+    "py-0",
+    "my-0",
+    "bg-transparent",
+    "rotado"
+  );
+  // Creamos P dentro de Part Bot
+  var pPintaB = document.createElement("p");
+  pPintaB.innerHTML = pintarandom;
+  // Metemos P en Parte Top
+  cardfooter.appendChild(pPintaB);
+
+  //Cambia de color a los corazones y diamantes
+  if (pintarandom == "♦" || pintarandom == "♥") {
+    pPintaT.style.color = "red";
+    pPintaB.style.color = "red";
+  }
+
+  //metemos el top mid y bot en la carta
+  carddiv.appendChild(cardheader);
+  carddiv.appendChild(cardbody);
+  carddiv.appendChild(cardfooter);
+
+  misCartas[x] = [numerorandom, pintarandom];
+  x++;
+  console.log("Mis cartas Originales");
+  console.log(misCartas);
+
+  return carddiv;
+}
+
+var btnSort = document.querySelector("#Sort");
+btnSort.addEventListener("click", function(e) {
+  e.preventDefault();
+  let cartasOrdenadaSort = [];
+  cartasOrdenadaSort = bubbleSort(misCartas);
+  console.log("mis cartas ordenadas");
+  console.log(cartasOrdenadaSort);
+});
+
+const bubbleSort = arr => {
+  let wall = arr.length - 1; //we start the wall at the end of the array
+  while (wall > 0) {
+    let index = 0;
+    while (index < wall) {
+      //compare the adjacent positions, if the right one is bigger, we have to swap
+      if (arr[index] > arr[index + 1]) {
+        let aux = arr[index];
+        arr[index] = arr[index + 1];
+        arr[index + 1] = aux;
+      }
+      index++;
+    }
+    wall--; //decrease the wall for optimization
+  }
+  return arr;
+};
