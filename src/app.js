@@ -7,7 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-  console.log("Hello Rigo from the console!");
+  /*   console.log("Hello Rigo from the console!");
   let numero = [
     "As",
     "2",
@@ -39,7 +39,7 @@ window.onload = function() {
   } else {
     document.querySelector("#simboloTop1").classList.remove("text-danger");
     document.querySelector("#simboloBot1").classList.remove("text-danger");
-  }
+  } */
 };
 
 let drow = document.querySelector("#drow");
@@ -102,5 +102,23 @@ drow.addEventListener("click", function(e) {
     // Creamos P dentro de Part Mid
     let pNum = document.createElement("p");
     pNum.innerHTML(numerorandom);
+
+    // Creanis Part Bot
+    let cardfooter = document.createElement(
+      "card-footer align-middle py-0 my-0 bg-transparent rotado"
+    );
+    cardfooter.classList.add("border-0");
+    // Creamos P dentro de Part Bot
+    let pPintaB = document.createElement("p");
+    pPintaB.innerHTML(pintarandom);
+    // Metemos P en Parte Top
+    cardfooter.appendChild(pPintaB);
+
+    //metemos el top mid y bot en la carta
+    card.appendChild(cardheader);
+    card.appendChild(cardbody);
+    card.appendChild(cardfooter);
+
+    return card;
   }
 });

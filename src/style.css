@@ -17,3 +17,6 @@ body {
   align-self: center;
   font-size: 150px;
 }
+.card-footer {
+  font-size: 40px;
+}
