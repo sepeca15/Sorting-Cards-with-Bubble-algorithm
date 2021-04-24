@@ -141,6 +141,10 @@ btnSort.addEventListener("click", function(e) {
   cartasOrdenadaSort = bubbleSort(misCartas);
   console.log("mis cartas ordenadas");
   console.log(cartasOrdenadaSort);
+  let ordenadaDiv = document.querySelector("#OrdenaCarta");
+  for (let index = 0; index < cartasOrdenadaSort; index++) {
+    ordenadaDiv.appendChild(dibujarCartas());
+  }
 });
 
 const bubbleSort = arr => {
