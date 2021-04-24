@@ -41,19 +41,16 @@ window.onload = function() {
     document.querySelector("#simboloBot1").classList.remove("text-danger");
   } */
 };
-
+var cartas = document.querySelector("#Cartas");
 let drow = document.querySelector("#drow");
 drow.addEventListener("click", function(e) {
   e.preventDefault();
-  let entCard = document.querySelector("#entCard");
-  var cartasAgenerar = [];
-  cartasAgenerar.push(entCard.value);
-  console.log(cartasAgenerar);
-  //drow.disabled = true;
+  let entCard = document.querySelector("#entCard").value;
+  drow.disabled = true;
   // Generador de cartas
-  if (cartasAgenerar !== "" && cartasAgenerar <= 4) {
-    for (let index = 0; index < cartasAgenerar.length; index++) {
-      function dibujarCartas() {}
+  if (entCard > 0 && entCard <= 4) {
+    for (let index = 0; index < entCard; index++) {
+      cartas.appendChild(dibujarCartas());
     }
   }
   //funcion creadora de cartas random
@@ -78,47 +75,67 @@ drow.addEventListener("click", function(e) {
 
     let numIndx = Math.floor(Math.random() * numero.length);
     let pintaIndex = Math.floor(Math.random() * pinta.length);
-    let numerorandom = numero[numIndx];
-    let pintarandom = pinta[pintaIndex];
+    var numerorandom = numero[numIndx];
+    var pintarandom = pinta[pintaIndex];
+    console.log(pintarandom, numerorandom);
 
     // Creamos carta
-    let card = document.createElement("div.card.shadow");
-    card.classList.add("m-2");
+    var carddiv = document.createElement("div");
+    carddiv.classList.add("m-2", "card", "shadow");
 
     // Creamos Part Top
-    let cardheader = document.createElement(
-      "div.card-header.align-middle.py-0.my-0.bg-transparent"
+    let cardheader = document.createElement("div");
+    cardheader.classList.add(
+      "border-0",
+      "card-header",
+      "align-middle",
+      "py-0",
+      "my-0",
+      "bg-transparent"
     );
-    cardheader.classList.add("border-0");
     // Creamos P dentro de Part Top
-    let pPintaT = document.createElement("p");
-    pPintaT.innerHTML(pintarandom);
+    var pPintaT = document.createElement("p");
+    pPintaT.innerHTML = pintarandom;
     // Metemos P en Parte Top
     cardheader.appendChild(pPintaT);
 
     // Creamos Part Mid
-    let cardbody = document.createElement("div.card-body.align-middle.py-0");
-    cardbody.classList.add("my-0");
-    // Creamos P dentro de Part Mid
+    let cardbody = document.createElement("div");
+    cardbody.classList.add("my-0", "card-body", "align-middle", "py-0");
+    // Creamos P de Part Mid
     let pNum = document.createElement("p");
-    pNum.innerHTML(numerorandom);
+    pNum.innerHTML = numerorandom;
+    //Metemos el P dentro de Part mid
+    cardbody.appendChild(pNum);
 
     // Creanis Part Bot
-    let cardfooter = document.createElement(
-      "card-footer align-middle py-0 my-0 bg-transparent rotado"
+    let cardfooter = document.createElement("div");
+    cardfooter.classList.add(
+      "border-0",
+      "card-footer",
+      "align-middle",
+      "py-0",
+      "my-0",
+      "bg-transparent",
+      "rotado"
     );
-    cardfooter.classList.add("border-0");
     // Creamos P dentro de Part Bot
-    let pPintaB = document.createElement("p");
-    pPintaB.innerHTML(pintarandom);
+    var pPintaB = document.createElement("p");
+    pPintaB.innerHTML = pintarandom;
     // Metemos P en Parte Top
     cardfooter.appendChild(pPintaB);
 
-    //metemos el top mid y bot en la carta
-    card.appendChild(cardheader);
-    card.appendChild(cardbody);
-    card.appendChild(cardfooter);
+    //Cambia de color a los corazones y diamantes
+    if (pintarandom == "♦" || pintarandom == "♥") {
+      pPintaT.style.color = "red";
+      pPintaB.style.color = "red";
+    }
 
-    return card;
+    //metemos el top mid y bot en la carta
+    carddiv.appendChild(cardheader);
+    carddiv.appendChild(cardbody);
+    carddiv.appendChild(cardfooter);
+
+    return carddiv;
   }
 });
