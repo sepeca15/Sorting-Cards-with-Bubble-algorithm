@@ -5,42 +5,7 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-  /*   console.log("Hello Rigo from the console!");
-    let numero = [
-      "As",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-      "8",
-      "9",
-      "10",
-      "J",
-      "Q",
-      "K"
-    ];
-    let pinta = ["♦", "♥", "♠", "♣"];
-  
-    let numIndx = Math.floor(Math.random() * numero.length);
-    let pintaIndex = Math.floor(Math.random() * pinta.length);
-    let pintarandom = pinta[pintaIndex];
-  
-    document.querySelector("#simboloTop1").append(pinta[pintaIndex]);
-    document.querySelector("#simboloBot1").append(pinta[pintaIndex]);
-    document.querySelector("#num1").append(numero[numIndx]);
-  
-    if (pintarandom == "♥" || pintarandom == "♦") {
-      document.querySelector("#simboloTop1").classList.add("text-danger");
-      document.querySelector("#simboloBot1").classList.add("text-danger");
-    } else {
-      document.querySelector("#simboloTop1").classList.remove("text-danger");
-      document.querySelector("#simboloBot1").classList.remove("text-danger");
-    } */
-};
+window.onload = function() {};
 let misCartas = [];
 
 var cartas = document.querySelector("#Cartas");
@@ -60,6 +25,7 @@ drow.addEventListener("click", function(e) {
       let pintaIndex = Math.floor(Math.random() * pinta.length);
       var numerorandom = numero[numIndx];
       var pintarandom = pinta[pintaIndex];
+
       cartas.appendChild(dibujarCartas(numerorandom, pintarandom));
       misCartas[index] = [numerorandom, pintarandom];
     }
@@ -182,7 +148,7 @@ const selectSort = arr => {
   /* Ordenamos los numeros */
   while (min < arr.length) {
     for (let i = min + 1; i < arr.length; i++) {
-      if (arr[min] > arr[i]) {
+      if (arr[min][0] > arr[i][0]) {
         let aux = arr[min];
         arr[min] = arr[i];
         arr[i] = aux;
