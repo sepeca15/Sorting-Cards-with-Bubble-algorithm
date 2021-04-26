@@ -60,7 +60,6 @@ drow.addEventListener("click", function(e) {
       let pintaIndex = Math.floor(Math.random() * pinta.length);
       var numerorandom = numero[numIndx];
       var pintarandom = pinta[pintaIndex];
-      console.log(pintarandom, numerorandom);
       cartas.appendChild(dibujarCartas(numerorandom, pintarandom));
       misCartas[index] = [numerorandom, pintarandom];
     }
@@ -135,18 +134,15 @@ function dibujarCartas(numerorandom, pintarandom) {
 var btnSort = document.querySelector("#Sort");
 btnSort.addEventListener("click", function(e) {
   e.preventDefault();
+  btnSort.disabled = true;
   let cartasOrdenadaSort = [];
   cartasOrdenadaSort = bubbleSort(misCartas);
-  console.log("mis cartas ordenadas");
-  console.log(cartasOrdenadaSort);
   let ordenadaDiv = document.querySelector("#OrdenaCarta");
   for (let index = 0; index < cartasOrdenadaSort.length; index++) {
-    console.log("Entre");
     let carta = dibujarCartas(
       cartasOrdenadaSort[index][0],
       cartasOrdenadaSort[index][1]
     );
-    console.log(carta);
     ordenadaDiv.appendChild(carta);
   }
 });
@@ -155,19 +151,15 @@ btnSort.addEventListener("click", function(e) {
 var btnSelect = document.querySelector("#Select");
 btnSelect.addEventListener("click", function(e) {
   e.preventDefault();
-  btnSort.disabled = true;
+  btnSelect.disabled = true;
   let cartasOrdenadaSelect = [];
   cartasOrdenadaSelect = selectSort(misCartas);
-  console.log("mis cartas ordenadas");
-  console.log(cartasOrdenadaSelect);
   let ordenadaDivSelect = document.querySelector("#OrdenaCartaSelect");
   for (let index = 0; index < cartasOrdenadaSelect.length; index++) {
-    console.log("Entre");
     let cartaS = dibujarCartas(
       cartasOrdenadaSelect[index][0],
       cartasOrdenadaSelect[index][1]
     );
-    console.log(cartaS);
     ordenadaDivSelect.appendChild(cartaS);
   }
 });
