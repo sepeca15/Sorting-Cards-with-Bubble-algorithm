@@ -53,7 +53,7 @@ drow.addEventListener("click", function(e) {
   if (entCard > 0 && entCard <= 8) {
     for (let index = 0; index < entCard; index++) {
       // pintas y numero random
-      let numero = ["Ⓐ", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+      let numero = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
       let pinta = ["♦", "♥", "♠", "♣"];
 
       let numIndx = Math.floor(Math.random() * numero.length);
@@ -92,6 +92,18 @@ function dibujarCartas(numerorandom, pintarandom) {
   cardbody.classList.add("my-0", "card-body", "align-middle", "py-0");
   // Creamos P de Part Mid
   let pNum = document.createElement("p");
+  if (numerorandom == 1) {
+    numerorandom = "A";
+  }
+  if (numerorandom == 11) {
+    numerorandom = "J";
+  }
+  if (numerorandom == 12) {
+    numerorandom = "Q";
+  }
+  if (numerorandom == 13) {
+    numerorandom = "K";
+  }
   pNum.innerHTML = numerorandom;
   //Metemos el P dentro de Part mid
   cardbody.appendChild(pNum);
@@ -188,7 +200,7 @@ const bubbleSort = arr => {
     let index = 0;
     while (index < wall) {
       //compare the adjacent positions, if the right one is bigger, we have to swap
-      if (arr[index] > arr[index + 1]) {
+      if (arr[index][0] > arr[index + 1][0]) {
         let aux = arr[index];
         arr[index] = arr[index + 1];
         arr[index + 1] = aux;
