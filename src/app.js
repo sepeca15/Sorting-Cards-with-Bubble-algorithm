@@ -131,6 +131,7 @@ function dibujarCartas(numerorandom, pintarandom) {
   return carddiv;
 }
 
+//boton sort
 var btnSort = document.querySelector("#Sort");
 btnSort.addEventListener("click", function(e) {
   e.preventDefault();
@@ -150,9 +151,11 @@ btnSort.addEventListener("click", function(e) {
   }
 });
 
-var btnSort = document.querySelector("#Select");
-btnSort.addEventListener("click", function(e) {
+//boton selct
+var btnSelect = document.querySelector("#Select");
+btnSelect.addEventListener("click", function(e) {
   e.preventDefault();
+  btnSort.disabled = true;
   let cartasOrdenadaSelect = [];
   cartasOrdenadaSelect = selectSort(misCartas);
   console.log("mis cartas ordenadas");
@@ -169,6 +172,7 @@ btnSort.addEventListener("click", function(e) {
   }
 });
 
+//metodo select
 const selectSort = arr => {
   let min = 0;
   /* Ordenamos los numeros */
@@ -185,6 +189,7 @@ const selectSort = arr => {
   return arr;
 };
 
+//metodo Sort
 const bubbleSort = arr => {
   let wall = arr.length - 1; //we start the wall at the end of the array
   while (wall > 0) {
