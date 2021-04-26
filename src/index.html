@@ -16,9 +16,10 @@
         <div class="row p-3" id="navbar">
             <form>
                 <div class="form-group">
-                    <input type="text" id="entCard" class="numCard" />
+                    <input type="text" id="entCard" class="numCard" placeholder="Ingrese cartas entre 1-8"/>
                     <button type="submit" id="drow">Drow</button>
                     <button type="button" id="Sort">Sort</button>
+                    <button type="button" id="Select">Select</button>
                 </div>
             </form>
         </div>
@@ -26,55 +27,15 @@
         <div class="row p-2 " id="Cartas">
         </div>
         <div class="w-100">
-            <h2>Cartas Ordenadas</h2>
-            <div class="resultado d-flex" id="OrdenaCarta">
-                <!-- <div class="m-2 card shadow">
-                    <div class="border-0 card-header align-middle py-0 my-0 bg-transparent">
-                        <p>♣</p>
-                    </div>
-                    <div class="my-0 card-body align-middle py-0">
-                        <p>K</p>
-                    </div>
-                    <div class="border-0 card-footer align-middle py-0 my-0 bg-transparent rotado">
-                        <p>♣</p>
-                    </div>
-                </div>
-                 <div class="m-2 card shadow">
-                    <div class="border-0 card-header align-middle py-0 my-0 bg-transparent">
-                        <p>♣</p>
-                    </div>
-                    <div class="my-0 card-body align-middle py-0">
-                        <p>K</p>
-                    </div>
-                    <div class="border-0 card-footer align-middle py-0 my-0 bg-transparent rotado">
-                        <p>♣</p>
-                    </div>
-                </div>
-                 <div class="m-2 card shadow">
-                    <div class="border-0 card-header align-middle py-0 my-0 bg-transparent">
-                        <p>♣</p>
-                    </div>
-                    <div class="my-0 card-body align-middle py-0">
-                        <p>K</p>
-                    </div>
-                    <div class="border-0 card-footer align-middle py-0 my-0 bg-transparent rotado">
-                        <p>♣</p>
-                    </div>
-                </div>
-                 <div class="m-2 card shadow">
-                    <div class="border-0 card-header align-middle py-0 my-0 bg-transparent">
-                        <p>♣</p>
-                    </div>
-                    <div class="my-0 card-body align-middle py-0">
-                        <p>K</p>
-                    </div>
-                    <div class="border-0 card-footer align-middle py-0 my-0 bg-transparent rotado">
-                        <p>♣</p>
-                    </div>
-                </div> -->
+            <h2>Cartas Ordenadas con Sort</h2>
+            <div class="row resultado d-flex" id="OrdenaCarta">
             </div>
         </div>
-
+        <div class="w-100">
+            <h2>Cartas Ordenadas con Select</h2>
+            <div class="row resultado d-flex" id="OrdenaCartaSelect">
+            </div>
+        </div>
 </body>
 
 </html>
